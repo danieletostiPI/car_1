@@ -33,7 +33,7 @@ GP.setup(FL,GP.OUT)
 GP.setup(FL_DIR1,GP.OUT)
 GP.setup(FL_DIR2,GP.OUT)
 
-PWM_RR = GP.PWM(RR,50)  # set pwm for each motor
+PWM_RR = GP.PWM(RR,100)  # set pwm for each motor
 PWM_RL = GP.PWM(RL,50)
 PWM_FR = GP.PWM(FR,50)
 PWM_FL = GP.PWM(FL,50)
