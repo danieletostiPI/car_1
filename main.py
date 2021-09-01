@@ -169,14 +169,14 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 50
+pwm_go = 100
 
 PWM_RR.start(0)     # set initial value of pwms
 PWM_RL.start(0)
 PWM_FR.start(0)
 PWM_FL.start(0)
 
-while stop and back:
+while (stop == True) and (back == True):
 
     stop = GP.input(STOP)
     fwd = GP.input(FWD)
