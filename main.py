@@ -168,7 +168,7 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 50
+pwm_go = 90
 
 PWM_RR.start(0)     # set initial value of pwms
 PWM_RL.start(0)
