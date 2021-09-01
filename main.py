@@ -175,6 +175,13 @@ PWM_RL.start(0)
 PWM_FR.start(0)
 PWM_FL.start(0)
 
+time.sleep(1)
+go_fw(pwm_go)
+time.sleep(2)
+go_bw()
+time.sleep(2)
+PWM_RR.ChangeDutyCycle(0)
+
 while stop:
 
     stop = GP.input(STOP)
@@ -182,12 +189,6 @@ while stop:
     back = GP.input(BACK)
     left = GP.input(LEFT)
     right = GP.input(RIGHT)
-
-    go_fw(pwm_go)
-    time.sleep(2)
-    go_bw()
-    time.sleep(2)
-    PWM_RR.ChangeDutyCycle(0)
 
     if not fwd:
         go_fw(pwm_go)
