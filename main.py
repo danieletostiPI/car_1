@@ -68,19 +68,19 @@ def go_bw():    #velocità predefinita
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
-    PWM_RR.ChangeDutyCycle(20)
+    PWM_RR.ChangeDutyCycle(90)
 
     GP.output(RL_DIR1, GP.LOW)
     GP.output(RL_DIR2, GP.HIGH)
-    PWM_RL.ChangeDutyCycle(20)
+    PWM_RL.ChangeDutyCycle(90)
 
     GP.output(FR_DIR1, GP.LOW)
     GP.output(FR_DIR2, GP.HIGH)
-    PWM_FR.ChangeDutyCycle(20)
+    PWM_FR.ChangeDutyCycle(90)
 
     GP.output(FL_DIR1, GP.LOW)
     GP.output(FL_DIR2, GP.HIGH)
-    PWM_FL.ChangeDutyCycle(20)
+    PWM_FL.ChangeDutyCycle(90)
 
 def go_right(pwm_default,turn_inc):
 
@@ -149,19 +149,19 @@ def spin_left():
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
-    PWM_RR.ChangeDutyCycle(20)
+    PWM_RR.ChangeDutyCycle(30)
 
     GP.output(RL_DIR1, GP.HIGH)
     GP.output(RL_DIR2, GP.LOW)
-    PWM_RL.ChangeDutyCycle(20)
+    PWM_RL.ChangeDutyCycle(30)
 
     GP.output(FR_DIR1, GP.LOW)
     GP.output(FR_DIR2, GP.HIGH)
-    PWM_FR.ChangeDutyCycle(20)
+    PWM_FR.ChangeDutyCycle(30)
 
     GP.output(FL_DIR1, GP.HIGH)
     GP.output(FL_DIR2, GP.LOW)
-    PWM_FL.ChangeDutyCycle(20)
+    PWM_FL.ChangeDutyCycle(30)
 
 
 fwd = True
