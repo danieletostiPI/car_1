@@ -1,6 +1,5 @@
 import time
 import RPi.GPIO as GP
-import numpy as np
 
 GP.setmode(GP.BOARD)
 GP.setwarnings(False)
@@ -68,19 +67,19 @@ def go_bw():    #velocità predefinita
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
-    PWM_RR.ChangeDutyCycle(90)
+    PWM_RR.ChangeDutyCycle(50)
 
     GP.output(RL_DIR1, GP.LOW)
     GP.output(RL_DIR2, GP.HIGH)
-    PWM_RL.ChangeDutyCycle(90)
+    PWM_RL.ChangeDutyCycle(50)
 
     GP.output(FR_DIR1, GP.LOW)
     GP.output(FR_DIR2, GP.HIGH)
-    PWM_FR.ChangeDutyCycle(90)
+    PWM_FR.ChangeDutyCycle(50)
 
     GP.output(FL_DIR1, GP.LOW)
     GP.output(FL_DIR2, GP.HIGH)
-    PWM_FL.ChangeDutyCycle(90)
+    PWM_FL.ChangeDutyCycle(50)
 
 def go_right(pwm_default,turn_inc):
 
@@ -169,7 +168,7 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 90
+pwm_go = 50
 
 PWM_RR.start(0)     # set initial value of pwms
 PWM_RL.start(0)
@@ -183,6 +182,12 @@ while stop:
     back = GP.input(BACK)
     left = GP.input(LEFT)
     right = GP.input(RIGHT)
+
+    go_fw(pwm_go)
+    time.sleep(2)
+    go_bw()
+    time.sleep(2)
+    PWM_RR.ChangeDutyCycle(0)
 
     if not fwd:
         go_fw(pwm_go)
