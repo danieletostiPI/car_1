@@ -171,7 +171,7 @@ right = True
 stop = True
 pwm_go = 50
 
-while stop:
+while stop and back:
 
     stop = GP.input(STOP)
     fwd = GP.input(FWD)
@@ -194,4 +194,8 @@ while stop:
     if not right:
         go_right(pwm_go,1)
         print("right")
+    # --------------------------
+    if not stop:
+        go_fw(0)
+        print("stop")
     # --------------------------
