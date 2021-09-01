@@ -13,8 +13,8 @@ STOP = 18
 
 RR, RR_DIR1, RR_DIR2 = 33, 35, 37  # REAR RIGHT
 RL, RL_DIR1, RL_DIR2 = 40, 38, 36
-FR, FR_DIR1, FR_DIR2 = 32, 8, 9
-FL, FL_DIR1, FL_DIR2 = 10, 11, 12
+FR, FR_DIR1, FR_DIR2 = 32, 24, 26
+FL, FL_DIR1, FL_DIR2 = 8, 10, 19
 
 # MOTOR:    #HP: DIR1:HIGH e DIR2:LOW il motore gira portando il veicolo in avanti
 GP.setup(RR,GP.OUT)
