@@ -176,7 +176,7 @@ PWM_RL.start(0)
 PWM_FR.start(0)
 PWM_FL.start(0)
 
-while (stop == True) and (back == True):
+while stop:
 
     stop = GP.input(STOP)
     fwd = GP.input(FWD)
