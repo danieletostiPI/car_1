@@ -83,7 +83,7 @@ pwm_go = 50
 PWM_RR.start(0)     # set initial value of pwms
 PWM_RL.start(0)
 
-while stop == 1 and back == 1:
+while stop:
 
     stop = GP.input(STOP)
     fwd = GP.input(FWD)
@@ -100,11 +100,11 @@ while stop == 1 and back == 1:
         print("back")
     # --------------------------
     if not left:
-        go_left(pwm_go,1)
-        print("left")
+        go_fw(0)
+        print("stop motor")
     # --------------------------
     if not right:
-        go_right(pwm_go,1)
+        #go_right(pwm_go,1)
         print("right")
     # --------------------------
     if not stop:
