@@ -83,7 +83,7 @@ pwm_go = 50
 PWM_RR.start(0)     # set initial value of pwms
 PWM_RL.start(0)
 
-while stop and back:
+while stop == 1 and back == 1:
 
     stop = GP.input(STOP)
     fwd = GP.input(FWD)
