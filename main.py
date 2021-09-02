@@ -89,6 +89,7 @@ time.sleep(2)
 go_bw()
 time.sleep(2)
 PWM_RR.ChangeDutyCycle(0)
+PWM_RL.ChangeDutyCycle(0)
 
 while stop:
 
@@ -118,3 +119,6 @@ while stop:
         go_fw(0)
         print("stop")
     # --------------------------
+
+PWM_RR.ChangeDutyCycle(0)
+PWM_RL.ChangeDutyCycle(0)
