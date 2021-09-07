@@ -123,7 +123,7 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 50
+pwm_go = 80
 turn_inc = 1
 
 PWM_RR.start(0)     # set initial value of pwms
