@@ -46,7 +46,7 @@ GP.setup(RIGHT, GP.IN, pull_up_down=GP.PUD_UP)
 GP.setup(STOP, GP.IN, pull_up_down=GP.PUD_UP)
 
 
-def go_fw(pwm_default):
+def go_bw(pwm_default):
 
     GP.output(RR_DIR1, GP.HIGH)
     GP.output(RR_DIR2, GP.LOW)
@@ -64,7 +64,7 @@ def go_fw(pwm_default):
     GP.output(FL_DIR2, GP.HIGH)
     PWM_FL.ChangeDutyCycle(pwm_default)
 
-def go_bw(pwm_default):    #velocità predefinita
+def go_fw(pwm_default):    #velocità predefinita
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
@@ -82,7 +82,7 @@ def go_bw(pwm_default):    #velocità predefinita
     GP.output(FL_DIR2, GP.HIGH)
     PWM_FL.ChangeDutyCycle(pwm_default)
 
-def go_right(pwm_default,turn_inc):
+def go_left(pwm_default,turn_inc):
 
     GP.output(RR_DIR1, GP.HIGH)
     GP.output(RR_DIR2, GP.LOW)
@@ -100,7 +100,7 @@ def go_right(pwm_default,turn_inc):
     GP.output(FL_DIR2, GP.LOW)
     PWM_FL.ChangeDutyCycle(pwm_default*turn_inc)
 
-def go_left(pwm_default,turn_inc):
+def go_right(pwm_default,turn_inc):
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
