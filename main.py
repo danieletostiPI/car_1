@@ -64,23 +64,23 @@ def go_fw(pwm_default):
     GP.output(FL_DIR2, GP.HIGH)
     PWM_FL.ChangeDutyCycle(pwm_default)
 
-def go_bw():    #velocità predefinita
+def go_bw(pwm_default):    #velocità predefinita
 
     GP.output(RR_DIR1, GP.LOW)
     GP.output(RR_DIR2, GP.HIGH)
-    PWM_RR.ChangeDutyCycle(50)
+    PWM_RR.ChangeDutyCycle(pwm_default)
 
     GP.output(RL_DIR1, GP.LOW)
     GP.output(RL_DIR2, GP.HIGH)
-    PWM_RL.ChangeDutyCycle(50)
+    PWM_RL.ChangeDutyCycle(pwm_default)
 
     GP.output(FR_DIR1, GP.LOW)
     GP.output(FR_DIR2, GP.HIGH)
-    PWM_FR.ChangeDutyCycle(50)
+    PWM_FR.ChangeDutyCycle(pwm_default)
 
     GP.output(FL_DIR1, GP.LOW)
     GP.output(FL_DIR2, GP.HIGH)
-    PWM_FL.ChangeDutyCycle(50)
+    PWM_FL.ChangeDutyCycle(pwm_default)
 
 def go_right(pwm_default,turn_inc):
 
@@ -123,7 +123,8 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 80
+pwm_go = 60
+jumpmw = 90
 turn_inc = 1
 
 PWM_RR.start(0)     # set initial value of pwms
@@ -140,18 +141,26 @@ while stop:
     right = GP.input(RIGHT)
 
     if not fwd:
+        go_fw(jumpmw)       # per farlo partire
+        time.sleep(0.01)
         go_fw(pwm_go)
         print("fwd")
     # --------------------------
     elif not back:
-        go_bw()
+        go_bw(jumpmw)       # per farlo partire
+        time.sleep(0.01)
+        go_bw(pwm_go)
         print("back")
     # --------------------------
     elif not left:
+        go_left(jumpmw, turn_inc)
+        time.sleep(0.01)
         go_left(pwm_go,turn_inc)
-        print("stop motor")
+        print("left")
     # --------------------------
     elif not right:
+        go_right(jumpmw, turn_inc)
+        time.sleep(0.01)
         go_right(pwm_go,turn_inc)
         print("right")
     # --------------------------
