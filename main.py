@@ -60,8 +60,8 @@ def go_bw(pwm_default):
     GP.output(FR_DIR2, GP.HIGH)
     PWM_FR.ChangeDutyCycle(pwm_default)
 
-    GP.output(FL_DIR1, GP.LOW)
-    GP.output(FL_DIR2, GP.HIGH)
+    GP.output(FL_DIR1, GP.HIGH)
+    GP.output(FL_DIR2, GP.LOW)
     PWM_FL.ChangeDutyCycle(pwm_default)
 
 def go_fw(pwm_default):    #velocità predefinita
@@ -74,8 +74,8 @@ def go_fw(pwm_default):    #velocità predefinita
     GP.output(RL_DIR2, GP.HIGH)
     PWM_RL.ChangeDutyCycle(pwm_default)
 
-    GP.output(FR_DIR1, GP.LOW)
-    GP.output(FR_DIR2, GP.HIGH)
+    GP.output(FR_DIR1, GP.HIGH)
+    GP.output(FR_DIR2, GP.LOW)
     PWM_FR.ChangeDutyCycle(pwm_default)
 
     GP.output(FL_DIR1, GP.LOW)
@@ -86,14 +86,14 @@ def go_right(pwm_default,turn_inc):
 
     GP.output(RR_DIR1, GP.HIGH)
     GP.output(RR_DIR2, GP.LOW)
-    PWM_RR.ChangeDutyCycle(pwm_default)
+    PWM_RR.ChangeDutyCycle(pwm_default*turn_inc)
 
     GP.output(RL_DIR1, GP.LOW)
     GP.output(RL_DIR2, GP.HIGH)
     PWM_RL.ChangeDutyCycle(pwm_default*turn_inc)
 
-    GP.output(FR_DIR1, GP.HIGH)
-    GP.output(FR_DIR2, GP.LOW)
+    GP.output(FR_DIR1, GP.LOW)
+    GP.output(FR_DIR2, GP.HIGH)
     PWM_FR.ChangeDutyCycle(pwm_default*turn_inc)
 
     GP.output(FL_DIR1, GP.HIGH)
@@ -110,12 +110,12 @@ def go_left(pwm_default,turn_inc):
     GP.output(RL_DIR2, GP.LOW)
     PWM_RL.ChangeDutyCycle(pwm_default*turn_inc)
 
-    GP.output(FR_DIR1, GP.LOW)
-    GP.output(FR_DIR2, GP.HIGH)
+    GP.output(FR_DIR1, GP.HIGH)
+    GP.output(FR_DIR2, GP.LOW)
     PWM_FR.ChangeDutyCycle(pwm_default*turn_inc)
 
-    GP.output(FL_DIR1, GP.HIGH)
-    GP.output(FL_DIR2, GP.LOW)
+    GP.output(FL_DIR1, GP.LOW)
+    GP.output(FL_DIR2, GP.HIGH)
     PWM_FL.ChangeDutyCycle(pwm_default*turn_inc)
 
 fwd = True
@@ -142,25 +142,25 @@ while stop:
 
     if not fwd:
         go_fw(jumpmw)       # per farlo partire
-        time.sleep(0.01)
+        time.sleep(0.05)
         go_fw(pwm_go)
         print("fwd")
     # --------------------------
     elif not back:
         go_bw(jumpmw)       # per farlo partire
-        time.sleep(0.01)
+        time.sleep(0.05)
         go_bw(pwm_go)
         print("back")
     # --------------------------
     elif not left:
         go_left(jumpmw, turn_inc)
-        time.sleep(0.01)
+        time.sleep(0.05)
         go_left(pwm_go,turn_inc)
         print("left")
     # --------------------------
     elif not right:
         go_right(jumpmw, turn_inc)
-        time.sleep(0.01)
+        time.sleep(0.05)
         go_right(pwm_go,turn_inc)
         print("right")
     # --------------------------
