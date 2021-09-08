@@ -133,40 +133,50 @@ PWM_RL.start(0)
 PWM_FR.start(0)
 PWM_FL.start(0)
 
-while stop:
+from pyPS4Controller.controller import Controller
 
-    stop = GP.input(STOP)
-    fwd = GP.input(FWD)
-    back = GP.input(BACK)
-    left = GP.input(LEFT)
-    right = GP.input(RIGHT)
 
-    if not fwd:
+class MyController(Controller):
+
+    def __init__(self, **kwargs):
+        Controller.__init__(self, **kwargs)
+
+    def on_up_arrow_press(self):
+
         go_fw(jumpmw)  # per farlo partire
         time.sleep(0.05)
         go_fw(pwm_go)
         print("fwd")
     # --------------------------
-    elif not back:
+    def on_down_arrow_press(self):
         go_bw(jumpmw)  # per farlo partire
         time.sleep(0.05)
         go_bw(pwm_go)
         print("back")
     # --------------------------
-    elif not left:
-        go_left(jumpmw, turn_inc)
-        time.sleep(0.05)
-        go_left(pwm_go, turn_inc)
-        print("left")
-    # --------------------------
-    elif not right:
+    def on_right_arrow_press(self):
         go_right(jumpmw, turn_inc)
         time.sleep(0.05)
         go_right(pwm_go, turn_inc)
         print("right")
     # --------------------------
-    else:
+    def on_left_arrow_press(self):
+        go_left(jumpmw, turn_inc)
+        time.sleep(0.05)
+        go_left(pwm_go, turn_inc)
+        print("left")
+    # --------------------------
+    def on_up_down_arrow_release(self):
         PWM_RR.ChangeDutyCycle(0)
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
         PWM_FL.ChangeDutyCycle(0)
+    def on_left_right_arrow_release(self):
+        PWM_RR.ChangeDutyCycle(0)
+        PWM_RL.ChangeDutyCycle(0)
+        PWM_FR.ChangeDutyCycle(0)
+        PWM_FL.ChangeDutyCycle(0)
+
+
+controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+controller.listen()
