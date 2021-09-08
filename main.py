@@ -124,7 +124,7 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 80
+pwm_go = 95
 jumpmw = 99
 turn_inc = 1
 
