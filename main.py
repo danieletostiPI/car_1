@@ -186,7 +186,11 @@ class MyController(Controller):
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
         PWM_FL.ChangeDutyCycle(0)
-
+    def on_R2_press(self):
+        PWM_RR.ChangeDutyCycle(0)
+        PWM_RL.ChangeDutyCycle(0)
+        PWM_FR.ChangeDutyCycle(0)
+        PWM_FL.ChangeDutyCycle(0)
 
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()
