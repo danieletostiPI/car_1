@@ -195,6 +195,38 @@ class MyController(Controller):
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
         PWM_FL.ChangeDutyCycle(0)
+    def on_R1_press(self):
+        GP.output(RR_DIR1, GP.LOW)
+        GP.output(RR_DIR2, GP.HIGH)
+        PWM_RR.ChangeDutyCycle(90)
+
+        GP.output(RL_DIR1, GP.LOW)
+        GP.output(RL_DIR2, GP.HIGH)
+        PWM_RL.ChangeDutyCycle(60)
+
+        GP.output(FR_DIR1, GP.HIGH)
+        GP.output(FR_DIR2, GP.LOW)
+        PWM_FR.ChangeDutyCycle(90)
+
+        GP.output(FL_DIR1, GP.LOW)
+        GP.output(FL_DIR2, GP.HIGH)
+        PWM_FL.ChangeDutyCycle(60)
+    def on_L1_press(self):
+        GP.output(RR_DIR1, GP.LOW)
+        GP.output(RR_DIR2, GP.HIGH)
+        PWM_RR.ChangeDutyCycle(60)
+
+        GP.output(RL_DIR1, GP.LOW)
+        GP.output(RL_DIR2, GP.HIGH)
+        PWM_RL.ChangeDutyCycle(90)
+
+        GP.output(FR_DIR1, GP.HIGH)
+        GP.output(FR_DIR2, GP.LOW)
+        PWM_FR.ChangeDutyCycle(60)
+
+        GP.output(FL_DIR1, GP.LOW)
+        GP.output(FL_DIR2, GP.HIGH)
+        PWM_FL.ChangeDutyCycle(90)
 
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()
