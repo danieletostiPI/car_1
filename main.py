@@ -124,7 +124,7 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 60
+pwm_go = 70
 jumpmw = 90
 turn_inc = 1
 
@@ -141,26 +141,26 @@ class MyController(Controller):
     def __init__(self, **kwargs):
         Controller.__init__(self, **kwargs)
 
-    def on_x_press(self):
+    def on_square_press(self):
 
         go_fw(jumpmw)  # per farlo partire
         time.sleep(0.05)
         go_fw(pwm_go)
         print("fwd")
     # --------------------------
-    def on_down_arrow_press(self):
+    def on_circle_press(self):
         go_bw(jumpmw)  # per farlo partire
         time.sleep(0.05)
         go_bw(pwm_go)
         print("back")
     # --------------------------
-    def on_right_arrow_press(self):
+    def on_triangle_press(self):
         go_right(jumpmw, turn_inc)
         time.sleep(0.05)
         go_right(pwm_go, turn_inc)
         print("right")
     # --------------------------
-    def on_left_arrow_press(self):
+    def on_x_press(self):
         go_left(jumpmw, turn_inc)
         time.sleep(0.05)
         go_left(pwm_go, turn_inc)
@@ -171,7 +171,17 @@ class MyController(Controller):
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
         PWM_FL.ChangeDutyCycle(0)
-    def on_left_right_arrow_release(self):
+    def on_square_release(self):
+        PWM_RR.ChangeDutyCycle(0)
+        PWM_RL.ChangeDutyCycle(0)
+        PWM_FR.ChangeDutyCycle(0)
+        PWM_FL.ChangeDutyCycle(0)
+    def on_triangle_release(self):
+        PWM_RR.ChangeDutyCycle(0)
+        PWM_RL.ChangeDutyCycle(0)
+        PWM_FR.ChangeDutyCycle(0)
+        PWM_FL.ChangeDutyCycle(0)
+    def on_circle_release(self):
         PWM_RR.ChangeDutyCycle(0)
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
