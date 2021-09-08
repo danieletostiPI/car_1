@@ -141,7 +141,7 @@ class MyController(Controller):
     def __init__(self, **kwargs):
         Controller.__init__(self, **kwargs)
 
-    def on_up_arrow_press(self):
+    def on_x_press(self):
 
         go_fw(jumpmw)  # per farlo partire
         time.sleep(0.05)
@@ -166,7 +166,7 @@ class MyController(Controller):
         go_left(pwm_go, turn_inc)
         print("left")
     # --------------------------
-    def on_up_down_arrow_release(self):
+    def on_x_release(self):
         PWM_RR.ChangeDutyCycle(0)
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
