@@ -124,8 +124,8 @@ back = True
 left = True
 right = True
 stop = True
-pwm_go = 70
-jumpmw = 90
+pwm_go = 80
+jumpmw = 99
 turn_inc = 1
 
 PWM_RR.start(0)  # set initial value of pwms
@@ -140,6 +140,10 @@ class MyController(Controller):
 
     def __init__(self, **kwargs):
         Controller.__init__(self, **kwargs)
+
+    def on_option_press(self):
+        pwm_go = 90
+        return pwm_go
 
     def on_square_press(self):
 
