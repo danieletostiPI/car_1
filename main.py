@@ -190,11 +190,6 @@ class MyController(Controller):
         PWM_RL.ChangeDutyCycle(0)
         PWM_FR.ChangeDutyCycle(0)
         PWM_FL.ChangeDutyCycle(0)
-    def on_R2_press(self):
-        PWM_RR.ChangeDutyCycle(0)
-        PWM_RL.ChangeDutyCycle(0)
-        PWM_FR.ChangeDutyCycle(0)
-        PWM_FL.ChangeDutyCycle(0)
     def on_R1_press(self):
         GP.output(RR_DIR1, GP.LOW)
         GP.output(RR_DIR2, GP.HIGH)
